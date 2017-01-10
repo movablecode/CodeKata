@@ -1,12 +1,12 @@
 -- FizzBuzz
 
-printWord = (cond,str) ->
-  io.write str if cond
+printWord = (cond,strYes,strNo="") ->
+  str2 = strYes
+  str2 = strNo unless cond
+  io.write str2
   return cond
 
 for i = 1,100
-  newLine = ""
   isFizz = printWord (i%3==0),"Fizz"
   isBuzz = printWord (i%5==0),"Buzz"
-  newLine = i unless (isFizz or isBuzz)
-  print newLine
+  printWord (isFizz or isBuzz),"\n",i.."\n"
